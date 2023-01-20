@@ -1,12 +1,24 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { fetchImages, page } from './js/fetchImages';
+import { createImages } from './js/createImage';
 
-console.log('hello');
+const form = document.querySelector('.search-form');
+const input = document.querySelector('.search-form__input');
+const btn = document.querySelector('.search-form__btn');
+const gallery = document.querySelector('.gallery');
 
-// 32972281-0765619f1e89c459ff8e86751
+form.addEventListener('submit', onSubmit);
 
-let a;
-a = 10;
-console.log(a);
+let searchValue = '';
+
+async function onSubmit(e) {
+  e.preventDefault();
+  searchValue = input.value.trim();
+  console.log(searchValue);
+  const result = await fetchImages(searchValue);
+  console.log(result);
+  gallery.innerHTML = createImages(result.hits);
+}
