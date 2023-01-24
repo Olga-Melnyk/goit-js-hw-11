@@ -62,7 +62,7 @@ async function onClick() {
 
     if (perPage === result.totalHits) {
       btnAdd();
-      Notiflix.Report.info(
+      Notiflix.info(
         "We're sorry, but you've reached the end of search results."
       );
     }
