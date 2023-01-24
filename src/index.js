@@ -27,6 +27,7 @@ btnAdd();
 async function onSubmit(e) {
   e.preventDefault();
   searchValue = input.value.trim();
+  resetPage();
   try {
     const result = await fetchImages(searchValue, currentPage);
     if (result.hits.length === 0) {
@@ -80,4 +81,8 @@ function btnAdd() {
 
 function btnRemove() {
   btn.classList.remove('visually-hidden');
+}
+
+function resetPage() {
+  currentPage = 1;
 }
