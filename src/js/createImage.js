@@ -4,24 +4,20 @@ export function createImages(arr) {
       item =>
         `<div class="photo-card">
         <a href="${item.largeImageURL}">
-        <img src="${item.webformatURL}" alt="" loading="lazy" />
+        <img src="${item.webformatURL}" alt="" loading="lazy" class="gallery-image"/>
         </a>
         <div class="info">
-          <p class="info-item">
+          <p class="info-item">${item.likes}
             <b>Likes</b>
-            ${item.likes}
-          </p>
-          <p class="info-item">
+            </p>
+          <p class="info-item">${item.views}
             <b>Views</b>
-            ${item.views}
-          </p>
-          <p class="info-item">
+            </p>
+          <p class="info-item">${item.comments}
             <b>Comments</b>
-            ${item.comments}
           </p>
-          <p class="info-item">
+          <p class="info-item">${item.downloads}
             <b>Downloads</b>
-            ${item.downloads}
           </p>
         </div>
       </div>`
